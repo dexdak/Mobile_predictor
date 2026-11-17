@@ -8,16 +8,18 @@ import requests
 # ==========================================
 # إعدادات بوت التيليجرام (ضع بياناتك هنا)
 # ==========================================
-TELEGRAM_TOKEN = "AAEKEGLt3kAxY1eiydBmeoKOHOXdY4tvlJ0_BotFather"
-TELEGRAM_CHAT_ID = "5216572128_userinfobot"
+TELEGRAM_TOKEN = "AAEKEGLt3kAxY1eiydBmeoKOHOXdY4tvlJ0BotFather"
+TELEGRAM_CHAT_ID = "5216572128userinfobot"
 
 def send_telegram_alert(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
     try:
-        requests.post(url, json=payload)
-    except:
-        pass # تجاهل الخطأ إذا فشل الإرسال
+        response = requests.post(url, json=payload)
+        # هذا السطر سيطبع رد تيليجرام في سجل التطبيق لمعرفة الخطأ
+        st.write(f"رد تيليجرام: {response.json()}") 
+    except Exception as e:
+        st.error(f"فشل الاتصال بتيليجرام: {e}")
 
 # ==========================================
 # واجهة التطبيق
