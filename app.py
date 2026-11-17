@@ -8,8 +8,8 @@ import requests
 # ==========================================
 # إعدادات بوت التيليجرام (ضع بياناتك هنا)
 # ==========================================
-TELEGRAM_TOKEN = "9226715244:AAEKEGLt3kAxY1eiydBmeoKOHOXdY4tvlJ0botfather"
-TELEGRAM_CHAT_ID = "5216572128userinfobot"
+TELEGRAM_TOKEN = "9226715244:AAEKEGLt3kAxY1eiydBmeoKOHOXdY4tvlJ0"
+TELEGRAM_CHAT_ID = "5216572128"
 
 def send_telegram_alert(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
